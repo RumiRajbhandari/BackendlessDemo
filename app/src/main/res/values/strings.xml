@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Backendlessdemo2</string>
+    <string name="hint_email">Enter emailid</string>
+    <string name="hint_password">Enter password</string>
+    <string name="hint_name">Enter Full Name</string>
+    <string name="btn_login">Log In</string>
+    <string name="btn_link_reg">Not Registered?Sign Up</string>
+    <string name="btn_reg">Sign Up</string>
+</resources>
