@@ -11,10 +11,7 @@
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingTop="20dp"
-        android:paddingRight="20dp"
-        android:layout_gravity="center">
-
-
+        android:paddingRight="20dp">
         <EditText
             android:id="@+id/txt_email"
             android:layout_width="fill_parent"
@@ -58,5 +55,16 @@
             android:text="@string/btn_link_reg"
             android:textAllCaps="false"
             android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_forum"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:background="@color/icons"
+            android:text="@string/forum"
+            android:textAllCaps="false"
+            android:textSize="15dp" />
+
     </LinearLayout>
 </LinearLayout>

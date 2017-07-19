@@ -1,4 +1,4 @@
-package com.example.root.backendlessdemo2;
+package com.example.root.backendlessdemo2.model;
 
 /**
  * Created by root on 7/17/17.
