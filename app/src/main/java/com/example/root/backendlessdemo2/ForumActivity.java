@@ -32,6 +32,7 @@ public class ForumActivity extends AppCompatActivity {
         Backendless.Persistence.of(Complain.class).find( new AsyncCallback<List<Complain>>() {
             @Override
             public void handleResponse(List<Complain> response) {
+                
                 Log.e("TAG", "onClick:2 "+response.get(0).toString()+"/n"+response.get(1).toString() );
             }
 

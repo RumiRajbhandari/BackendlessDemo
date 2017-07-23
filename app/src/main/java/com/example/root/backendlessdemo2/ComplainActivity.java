@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
@@ -23,6 +24,7 @@ public class ComplainActivity extends AppCompatActivity {
     public EditText txtTo, txtHead, txtBody;
     Button send,btnPost;
     String TAG = "TAG";
+    public String objectId;
     public String userid,to,head,body,datee;
 
     @Override
@@ -45,14 +47,14 @@ public class ComplainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveComplain();
-                postComplain();
+
              }
         });
 
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                postComplain();
             }
         });
      }
@@ -77,11 +79,15 @@ public class ComplainActivity extends AppCompatActivity {
 
             @Override
             public void handleResponse(Complain response) {
-                Log.e(TAG, "handleResponse: " );
+                Toast.makeText(ComplainActivity.this, "Email sent", Toast.LENGTH_SHORT).show();
+                objectId=response.getObjectId();
+                Log.e(TAG, "object id "+objectId );
                 Backendless.Persistence.of( Complain.class).findFirst(new AsyncCallback<Complain>() {
                     @Override
                     public void handleResponse(Complain response) {
                         Log.e(TAG, "handleResponse:2 " +response.getBody());
+                        Log.e(TAG, "handleResponse:2 " +response.toString());
+
                     }
 
                     @Override
@@ -94,15 +100,17 @@ public class ComplainActivity extends AppCompatActivity {
     }
 
     public void postComplain(){
-         String whereClause = "id='"+userid+"'";
+         String whereClause = "objectId='"+objectId+"'";
                 DataQueryBuilder dataQuery = DataQueryBuilder.create();
                 dataQuery.setWhereClause( whereClause );
-                Log.e(TAG, "userid: "+userid );
+                //Log.e(TAG, "userid: "+userid );
 
                 Backendless.Persistence.of(Complain.class).find(dataQuery, new AsyncCallback<List<Complain>>() {
                     @Override
                     public void handleResponse(List<Complain> response) {
-                        Log.e(TAG, "onClick:2 "+response.get(0).toString()+"/n"+response.get(1).toString() );
+                        Log.e(TAG, "object id2 "+objectId );
+                        Log.e(TAG, "onClick:2 "+response.get(0).toString()+"/n" );
+                        Toast.makeText(ComplainActivity.this, "Posted to Forum", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

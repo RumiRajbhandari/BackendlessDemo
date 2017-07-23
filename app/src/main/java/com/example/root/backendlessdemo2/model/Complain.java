@@ -4,7 +4,7 @@ package com.example.root.backendlessdemo2.model;
  * Created by root on 7/18/17.
  */
 public class Complain {
-    private String to,body,datee,head,id;
+    private String to,body,datee,head,id,objectId;
 
     public Complain(){}
 
@@ -20,6 +20,13 @@ public class Complain {
         this.id = id;
     }
 
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
 
     public void setId(String id) {
         this.id = id;
